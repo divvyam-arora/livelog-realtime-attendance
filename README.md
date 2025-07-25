@@ -1,4 +1,4 @@
-# Smart Attendance System (Face Recognition)
+# LiveLog - Smart Attendance System (Face Recognition)
 
 A Python Flask-based smart attendance system using face recognition. This project allows you to mark and view attendance using facial recognition, with all data and models managed locally. The app is now structured for easy deployment on [Vercel](https://vercel.com/) as a serverless Python function.
 
