@@ -1,16 +1,76 @@
-<img width="1434" alt="Screenshot 2023-04-29 at 9 49 21 PM" src="https://user-images.githubusercontent.com/132153646/235313166-b46f7795-fd86-4a0e-88c2-50cdf4b18968.png">
+# Smart Attendance System (Face Recognition)
 
-This is a real time python based attendance system
+A Python Flask-based smart attendance system using face recognition. This project allows you to mark and view attendance using facial recognition, with all data and models managed locally. The app is now structured for easy deployment on [Vercel](https://vercel.com/) as a serverless Python function.
 
-The steps that you need to follow to deploy this project are very simple.
-#
-You first need to download the uploaded folder, save it at the desired location and run it in the terminal by selecting a suitable option from the right click mouse menu.
-#
-After that you just need to run the command, "flask run" in the opened terminal and the project will open.
-#
-You can now continue using the system.
-#
-There will options to add a new user or mark attendance.
-#
-The sttendance csv file will be automatically uploaded in your projrct folder on a daily basis.
+---
+
+## Features
+- Mark attendance using face recognition (OpenCV + scikit-learn)
+- View daily attendance records
+- Add new users with face data (local only)
+- Simple web interface (Flask + HTML)
+
+---
+
+## Folder Structure
+```
+.
+├── api/
+│   ├── index.py                  # Main Flask app (entry point for Vercel)
+│   ├── requirements.txt          # Python dependencies
+│   ├── haarcascade_frontalface_default.xml  # Face detection model
+│   ├── static/
+│   │   └── face_recognition_model.pkl       # Trained face recognition model
+│   ├── templates/
+│   │   └── home.html             # Main HTML template
+│   └── Attendance/
+│       ├── Attendance-*.csv      # Attendance records
+├── vercel.json                   # Vercel routing config
+└── README.md                     # This file
+```
+
+---
+
+## Deploying on Vercel
+
+1. **Push this repo to GitHub.**
+2. **Connect your repo to Vercel** ([vercel.com/import](https://vercel.com/import)).
+3. Vercel will auto-detect the Python API in `api/index.py` and install dependencies from `api/requirements.txt`.
+4. All routes are handled by the Flask app.
+
+> **Note:**
+> - **Webcam features (marking attendance, adding users) will NOT work on Vercel** because serverless functions cannot access hardware. Only attendance viewing and data management features will work online.
+
+---
+
+## Local Development
+
+To use all features (including webcam):
+
+1. Clone the repo:
+   ```bash
+   git clone <your-repo-url>
+   cd livelog-realtime-attendance/Smart Attendance System
+   ```
+2. Install dependencies:
+   ```bash
+   pip install flask opencv-python numpy scikit-learn pandas joblib
+   ```
+3. Run the app:
+   ```bash
+   python app.py
+   ```
+4. Open [http://localhost:5000](http://localhost:5000) in your browser.
+
+---
+
+## Limitations
+- Webcam access is only available when running locally.
+- On Vercel, only web-based features (like viewing attendance) are available.
+- For full functionality, run the app on your own machine or a traditional server.
+
+---
+
+## Contact
+For questions or contributions, open an issue or pull request on GitHub!
 
